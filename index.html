@@ -302,7 +302,7 @@
         .introducao .caixa-texto {
             width: 100%;
             background-color: #809dae70; /* Verde mais claro */
-            padding: 20px 0;
+            padding: 64px 0;
         }
                 /* Conteúdo centralizado dentro da faixa */
         .introducao .conteudo-centralizado {
@@ -383,6 +383,22 @@
             }
         }
         /* Estilo base da seção */
+        .secao1 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao1 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .secao1 .topico-texto {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        /* Estilo base da seção */
         .secao1 {
             display: flex;
             flex-direction: column;
@@ -417,7 +433,7 @@
         .secao1 .faixa-verde .titulo-secao {
             font-size: 25px;
             font-family: 'Roboto', sans-serif;
-            color: #FFF; /* Cor verde */
+            color: #015A42; /* Cor verde */
             width: 90%;
             margin: 20px auto;
             max-width: 800px;
@@ -426,7 +442,7 @@
         .secao1 .titulo-verde {
             font-size: 25px;
             font-family: 'Roboto', sans-serif;
-            color: #b9e5a9; /* Cor verde */
+            color: #015A42; /* Cor verde */
             width: 90%;
             margin: 20px auto;
             max-width: 800px;
@@ -468,7 +484,11 @@
                 font-size: 0.95rem;
             }
         }
-
+        .secao2 .conteudo-secao {
+            width: 100%;
+            padding: 64px 0;
+            box-sizing: border-box;
+        }
         /* Estilo base da seção */
         .secao2 {
             display: flex;
@@ -566,7 +586,16 @@
             background-color: #b9e5a92c;
             border-bottom: 3px solid #92d678;
         }
-
+        .secao3 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao3 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
         /* Imagem de topo */
         .secao3 .imagem-topo {
             width: 100%;
@@ -591,7 +620,7 @@
         .secao3 .faixa-verde .titulo-secao {
             font-size: 25px;
             font-family: 'Roboto', sans-serif;
-            color: #FFF; /* Cor verde */
+            color: #015A42; /* Cor verde */
             width: 90%;
             margin: 20px auto;
             max-width: 800px;
@@ -600,7 +629,7 @@
         .secao3 .titulo-verde {
             font-size: 25px;
             font-family: 'Roboto', sans-serif;
-            color: #b9e5a9; /* Cor verde */
+            color: #015A42; /* Cor verde */
             width: 90%;
             margin: 20px auto;
             max-width: 800px;
@@ -661,6 +690,21 @@
             margin: 0;
             background-color: #809dae70;
             border-bottom: 3px solid #134969;
+        }
+        .secao4 .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
+        }
+        .secao4 .acordeon-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto; /* Centraliza */
+        }
+        .secao4 .tabela-pronomes {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto; /* Centraliza */
         }
         .secao4 .titulo-azul {
             font-size: 25px;
@@ -792,7 +836,7 @@
             justify-content: space-between;
             align-items: center;
             background-color: #b9e5a9;
-            color: white;
+            color: #015A42;
             cursor: pointer;
             padding: 15px;
             font-size: 17px;
@@ -1315,7 +1359,7 @@
         /* Botões de cada aba */
         .tab-btn {
             background-color: #b9e5a9;
-            color: white;
+            color: #015A42;
             border: none;
             padding: 8px 16px; /* reduzido */
             margin: 5px;
@@ -1943,7 +1987,7 @@
             background-color: #b9e5a92c;
             border-bottom: 3px solid #92d678;
         }
-
+    
         /* Imagem de topo */
         .conclusao .imagem-topo {
             width: 100%;
@@ -2104,6 +2148,11 @@
             .referencias p {
                 font-size: 0.95rem;
             }
+        }
+        .conteudo-secao {
+            width: 100% !important;
+            padding: 64px 0 !important; /* padding vertical conforme solicitado */
+            box-sizing: border-box !important;
         }
         .download-section {
                 padding: 15px;
@@ -2315,6 +2364,7 @@
                 1. COMUNICADOS INSTITUCIONAIS
             </h1>
         </div>
+        <div class="conteudo-secao">
         <p>
             Os comunicados institucionais são importantes para que a universidade transmita mensagens de forma
             objetiva e de fácil compreensão pelo público. No ambiente acadêmico, esses comunicados podem ser
@@ -2659,7 +2709,7 @@
             <img class="imagem-praticar"
                 src="https://res.cloudinary.com/di4ria1pf/image/upload/v1744848303/g7vh0r0sje52zd19k9ww.png"
                 alt="Imagem de atividade prática">
-            </section>
+        </section>
         <p>
             Por fim, os comunicados institucionais são ferramentas importantes de comunicação no contexto
             universitário. Saber compreendê-los, e até mesmo redigi-los de forma clara e eficaz, é uma habilidade
@@ -2677,12 +2727,14 @@
                 2. INSTRUÇÕES DE PROFESSORES
             </h1>
         </div>
+        <div class="conteudo-secao">
         <p>
             Neste tópico, vamos analisar como os professores transmitem instruções no ambiente universitário. Através
             de um diálogo, veremos como as orientações são passadas de maneira clara e como essas interações
             são fundamentais para a aplicação de normas de comunicação, comportamento e convivência no contexto
             acadêmico brasileiro.
         </p>
+        
         <!-- Slider de Quadrinhos -->
         <section class="slider-quadrinhos">
             <h2 class="titulo-slider">
@@ -2725,6 +2777,7 @@
             tarefas de forma adequada, reforçando a importância da comunicação direta e da disponibilidade do
             professor para esclarecer dúvidas.            
         </p>
+    </div>
     </section>
     <section class="secao3" id="secao3">
         <img src="https://res.cloudinary.com/di4ria1pf/image/upload/v1745524189/vm6embgebhgp2mhck5qn.png"
@@ -2734,6 +2787,7 @@
                 3. E-MAILS E MENSAGENS INSTANTÂNEAS
             </h1>
         </div>
+        <div class="conteudo-secao">
         <p>
             A comunicação escrita é uma habilidade importante para se integrar ao ambiente universitário e social. No
             entanto, existe uma diferença quando iremos nos comunicar com um grupo de amigos e com pessoas que
@@ -2970,6 +3024,7 @@
                 para o próximo semestre. Lembre-se de usar um tom educado e claro, garantindo que a mensagem seja
                 objetiva e profissional.
             </p>
+        </div>
         </section>
     </section>
     <section class="secao4" id="secao4">
@@ -2980,6 +3035,7 @@
                 4. GRAMÁTICA
             </h1>
         </div>
+        <div class="conteudo-secao">
         <p>
             Quando escrevemos uma mensagem de whatsapp e um e-mail para um amigo, é comum utilizarmos
             uma linguagem mais informal. Já em situações como enviar uma mensagem para um professor ou para
@@ -3351,6 +3407,7 @@
             <iframe id="quizz-iframe" src="" width="100%" height="500px"
                 style="border: 2px solid #134969; border-radius: 10px;"></iframe>
         </div>
+    </div>
     </section>
     </section>
     <section class="conclusao" id="conclusao">
@@ -3361,6 +3418,7 @@
                 CONCLUSÃO
             </h1>
         </div>
+        
         <p>
             A comunicação clara e eficaz é um pilar fundamental para a integração e o sucesso dos estudantes
             estrangeiros no ambiente universitário brasileiro. Os comunicados institucionais representam a voz
@@ -3383,11 +3441,14 @@
             para que os estudantes estrangeiros se sintam acolhidos, compreendam a cultura local e aproveitem ao
             máximo as oportunidades oferecidas pela universidade.
         </p>
+    
         <div id="download" class="download-section">
             <a href="" class="download-btn">
                 Baixar PDF <i class="fas fa-download"></i> <!-- Ícone de download -->
             </a>
         </div>
+
+    </div>
     </section>
     <section class="referencias" id="referencias">
         <img src="https://res.cloudinary.com/di4ria1pf/image/upload/v1745869736/jyzm19p9bgggekjdrgnz.png"
@@ -3398,6 +3459,7 @@
             </h1>
         </div>
         <br>
+        <div class="conteudo-secao">
         <p>
             BAGNO, Marcos. <strong>A Norma Oculta</strong>: Língua e Poder na Sociedade Brasileira. São Paulo: Contexto, 2013.
         </p>
@@ -3420,6 +3482,7 @@
         <p>
             PERINI, Mário A. <strong>Gramática do Português Brasileiro</strong>. São Paulo: Parábola Editorial, 2010.
         </p>
+    </div>
         <br>
     </section>
     <!-- Seção com os créditos e ficha técnica -->
