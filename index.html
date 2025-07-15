@@ -1349,125 +1349,244 @@
         /* Cabeçalho das tabs */
         .tabs-header {
             display: flex;
-            flex-wrap: wrap; /* permite quebra de linha */
-            justify-content: center;
-            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            gap: 0;
             background-color: transparent;
-            margin-bottom: 20px;
+            margin-bottom: 0;
+            position: relative;
         }
 
         /* Botões de cada aba */
         .tab-btn {
             background-color: #b9e5a9;
-            color: #015A42;
-            border: none;
-            padding: 8px 16px; /* reduzido */
-            margin: 5px;
+            color: #FFF;
+            border: 2px solid #b9e5a9;
+            border-bottom: none;
+            padding: 12px 20px;
+            margin: 0;
             cursor: pointer;
-            font-size: 14px; /* reduzido */
+            font-size: 14px;
             font-weight: bold;
-            flex: 1 1 20%; /* <<< ajuste importante: ocupa até 20% da linha, flexível */
-            min-width: 100px; /* garante largura mínima */
             text-align: center;
-            border-radius: 20px 20px 10px 10px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-
-            flex: 0 0 140px; /* <<< Mantém sempre 140px */
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            min-width: 120px;
+            white-space: nowrap;
+            /* NOVO: Impede que o botão mude de tamanho */
+            flex: 0 0 auto;
+            width: auto;
         }
         /* Botões de cada aba */
         .tab-btnb {
-            background-color: #b9e5a9;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
+            background-color: #134969;
+            color: #FFF;
+            border: 2px solid #134969;
+            border-bottom: none;
+            padding: 12px 20px;
+            margin: 0;
             cursor: pointer;
-            font-size: 16px;
-            max-width: 90%; /* impede que ultrapasse a tela */
-            word-break: break-word;
+            font-size: 14px;
+            font-weight: bold;
             text-align: center;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            transition: background-color 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            min-width: 120px;
+            white-space: nowrap;
+            /* NOVO: Impede que o botão mude de tamanho */
+            flex: 0 0 auto;
+            width: auto;
         }
-        /* Ajuste responsivo para telas pequenas */
-        @media screen and (max-width: 600px) {
-            .tab-btn {
-                flex: 1 1 45%; /* >>> 2 botões por linha */
-                font-size: 13px;
-                padding: 8px 10px;
-            }
-        }
-        @media screen and (max-width: 480px) {
-            .tab-btn,
-            .tab-btnb {
-                font-size: 14px;
-                padding: 8px 15px;
-            }
-        }
+        /* Hover melhorado */
         .tab-btn:hover {
-            background-color: #8bac7f;
+            background-color: #b9e5a9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
         .tab-btnb:hover {
-            background-color: #b9e5a9;
+            background-color: #134969;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Estado ativo OTIMIZADO */
+        .tab-btn.ativo {
+            background-color: white;
+            color: #015A42;
+            border-color: #b9e5a9;
+            border-bottom: 2px solid #b9e5a9;
+            z-index: 3;
+            margin-bottom: -2px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .tab-btn.ativo {
-            background-color: #8bac7f;
+        .tab-btnb.ativo {
+            background-color: white;
+            color: #134969;
+            border-color: #134969;
+            border-bottom: 2px solid #134969;
+            z-index: 3;
+            margin-bottom: -2px;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
         }
-        .tab-btn:focus {
-            outline: 2px solid #8bac7f;
+        /* Focus para acessibilidade */
+        .tab-btn:focus,
+        .tab-btnb:focus {
+            outline-offset: 2px;
         }
-        .tab-btn:focus-visible {
-            box-shadow: 0 0 0 3px rgba(139, 172, 127, 0.5);
+
+        .tab-btn:focus-visible,
+        .tab-btnb:focus-visible {
+            box-shadow: 0 0 0 3px rgba(58, 149, 166, 0.3);
         }
-        /* Conteúdo das tabs */
+        /* Conteúdo das tabs - VERSÃO OTIMIZADA COM ALTURA FIXA */
         .tabs-content {
             border: 2px solid #b9e5a9;
-            padding: 0;
-            display: none; /* <-- Ocultamos o container inteiro inicialmente */
-            border-radius: 10px;
-            background-color: #b9e5a92c;
+            border-radius: 0 8px 8px 8px;
+            background-color: white;
+            padding: 20px;
+            display: none;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* NOVO: Define altura mínima fixa para evitar "dança" dos botões */
+            min-height: 150px;
+            /* NOVO: Garante que o container mantenha tamanho consistente */
+            box-sizing: border-box;
         }
-         /* Conteúdo das tabs */
+
         .tabs-contentb {
-            border: 2px solid #3a95a6;
-            padding: 0;
-            display: none; /* <-- Ocultamos o container inteiro inicialmente */
-            border-radius: 10px;
-            background-color: #3a96a61c;
+            border: 2px solid #134969;
+            border-radius: 0 8px 8px 8px;
+            background-color: white;
+            padding: 20px;
+            display: none;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* NOVO: Define altura mínima fixa para evitar "dança" dos botões */
+            min-height: 150px;
+            /* NOVO: Garante que o container mantenha tamanho consistente */
+            box-sizing: border-box;
         }
+        /* Estados ativos do conteúdo */
+        .tabs-content.ativo,
+        .tabs-contentb.ativo {
+            display: block;
+        }
+
         .tab-content {
+            display: none;
+            line-height: 1.6;
+            color: #374151;
+            /* NOVO: Garante que o conteúdo não force expansão */
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .tab-content.ativo {
+            display: block;
+        }
+
+        /* Estilização do conteúdo interno */
+        .tab-content p {
+            margin-bottom: 12px;
+        }
+
+        .tab-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tab-content strong {
+            color: #000;
+        }
+
+        /* Remove o ::after antigo */
+        .tab-btn.ativo::after,
+        .tab-btnb.ativo::after {
             display: none;
         }
 
-        .tab-content.ativo,
-        .tabs-content.ativo, /* <-- ESSA LINHA AQUI */
-        .tabs-contentb.ativo,
-        .tabs-contentd.ativo {
-            display: block;
-            padding: 5px;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        .tab-btn.ativo::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 4px;
-            background-color: white;
-            border-radius: 0 0 10px 10px;
-            margin-top: 5px;
-        }
+        /* Regras de ocultação otimizadas */
         .tab-content:not(.ativo),
         .tabs-content:not(.ativo),
         .tabs-contentb:not(.ativo) {
             display: none;
+        }
+
+        /* Responsividade melhorada */
+        @media screen and (max-width: 768px) {
+            .tabs-header {
+                justify-content: center;
+            }
+
+            .tab-btn,
+            .tab-btnb {
+                flex: 1 1 45%;
+                font-size: 13px;
+                padding: 10px 15px;
+                min-width: 100px;
+            }
+
+            /* NOVO: Ajusta altura mínima em mobile */
+            .tabs-content,
+            .tabs-contentb {
+                min-height: 120px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .tab-btn,
+            .tab-btnb {
+                flex: 1 1 100%;
+                font-size: 14px;
+                padding: 12px 16px;
+                margin-bottom: 5px;
+            }
+
+            .tabs-content,
+            .tabs-contentb {
+                padding: 16px;
+                border-radius: 8px;
+                /* NOVO: Altura mínima menor em telas muito pequenas */
+                min-height: 100px;
+            }
+
+            .tabs-section {
+                margin: 20px auto;
+                padding: 0 10px;
+            }
+        }
+
+        /* Melhorias extras para UX */
+        @media (prefers-reduced-motion: reduce) {
+            .tab-btn,
+            .tab-btnb {
+                transition: none;
+            }
+        }
+
+        /* Estado de carregamento (opcional) */
+        .tabs-section.loading .tab-btn,
+        .tabs-section.loading .tab-btnb {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* NOVO: Se você quiser uma altura específica para cada grupo */
+        #grupo-tabs-c .tabs-content {
+            min-height: 180px; /* Ajuste conforme necessário */
+        }
+
+        #grupo-tabs-d .tabs-content {
+            min-height: 160px; /* Ajuste conforme necessário */
         }
         /* Estilo para os tópicos de texto */
         .topico-texto {
@@ -3044,7 +3163,7 @@
             gramaticais importantes para a fluidez e entendimento básico na construção de textos. Prontos?
         </p>
         <h1 class="titulo-azul">
-            4.1. VERBOS SER E ESTAR
+            4.1 VERBOS SER E ESTAR
         </h1>
         <p>
             Os verbos ser e estar são equivalentes ao verbo “to be” no idioma inglês e são fundamentais para expressar
@@ -3059,11 +3178,11 @@
         </p>
         <section class="tabs-section" id="grupo-tabs-d">
             <div class="tabs-header">
-                <button class="tab-btnd" data-target="exemplo10">VERBO SER</button>
-                <button class="tab-btnd" data-target="exemplo11">VERBO ESTAR</button>
+                <button class="tab-btnb" data-target="exemplo10">VERBO SER</button>
+                <button class="tab-btnb" data-target="exemplo11">VERBO ESTAR</button>
             </div>
         
-            <div class="tabs-contentd">
+            <div class="tabs-contentb">
                 <div id="exemplo10" class="tab-content">
                     <p>
                         Descreve características permanentes ou
@@ -3221,7 +3340,7 @@
                 referimos, seja no singular ou plural.
             </p>
             <h1 class="titulo-azul">
-                4.4. PRONOMES INTERROGATIVOS
+                4.4 PRONOMES INTERROGATIVOS
             </h1>
             <p>
                 Os pronomes interrogativos são palavras que usamos para fazer perguntas ou buscar informações
@@ -3663,11 +3782,13 @@
 
                     function configurarTabs(containerId) {
                             const container = document.getElementById(containerId);
+                            if (!container) return; // Se não existir, evita erro no console
+
                             const buttons = container.querySelectorAll('button');
                             const contents = container.querySelectorAll('.tab-content');
-                            const contentWrappers = container.querySelectorAll('[class^="tabs-content"]');
+                            const contentWrappers = container.querySelectorAll('.tabs-content, .tabs-contentb, .tabs-contentc, .tabs-contentd');
 
-                            // Garante que nada comece aberto
+                            // Garante que tudo comece fechado
                             buttons.forEach(btn => btn.classList.remove('ativo'));
                             contents.forEach(content => content.classList.remove('ativo'));
                             contentWrappers.forEach(wrapper => wrapper.classList.remove('ativo'));
@@ -3708,15 +3829,21 @@
                                 contents.forEach(content => content.classList.remove('ativo'));
                                 contentWrappers.forEach(wrapper => wrapper.classList.remove('ativo'));
 
+                                // Ativa se ainda não estiver ativo
                                 if (!isActive) {
                                     botao.classList.add('ativo');
                                     botao.setAttribute('aria-selected', 'true');
                                     if (targetContent) {
                                         targetContent.classList.add('ativo');
-                                        const parentWrapper = targetContent.closest('[class^="tabs-content"]');
+                                        const parentWrapper = targetContent.closest('.tabs-content, .tabs-contentb, .tabs-contentc, .tabs-contentd');
                                         if (parentWrapper) parentWrapper.classList.add('ativo');
                                     }
                                 }
+                            }
+
+                            // Ativa a primeira aba por padrão
+                            if (buttons.length > 0) {
+                                ativarTab(buttons[0]);
                             }
                         }
 
@@ -3724,7 +3851,7 @@
                         configurarTabs('grupo-tabs-a');
                         configurarTabs('grupo-tabs-b');
                         configurarTabs('grupo-tabs-c');
-                        configurarTabs('grupo-tabs-d');
+                        configurarTabs('grupo-tabs-d');  
                 
                     function abrirQuizz(event) {
                             event.preventDefault();
